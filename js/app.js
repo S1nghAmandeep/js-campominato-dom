@@ -49,3 +49,25 @@ function gridGenerator(numCell, classCell) {
     }
 }
 
+const difficoltyOne = getNumberForArray (1, 100, 16);
+
+function getNumberForArray(randomMin, randomMax, totalNumber) {
+
+    const arrayBombs = [];
+    console.log(arrayBombs)
+
+    while (arrayBombs.length < totalNumber) {
+        const number = getRandomInt(randomMin, randomMax);
+        console.log(number)
+        if (!arrayBombs.includes(number)) {
+            arrayBombs.push(number);
+        }
+    }
+    return arrayBombs
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
