@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    background-image: linear-gradient(to left,pink,rgb(0, 255, 251));
+  /* height: 100vh; */
+}    
+
+
+header {
+    padding: 50px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.button-style {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(4, 4, 4);
+    box-shadow: 1px 3px 5px #413f8b;
+}
+
+.button-style:hover {
+    background-color: rgb(255, 255, 255);
+    scale: 1.05;
+    transition: 100ms;
+    padding: 10px 20px;
+}
+
+.cell-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+
+.cell {
+    aspect-ratio: 1;
+    border: 1px solid black;
+    width: calc(100% / 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(14, 112, 216, 0.241);
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.cell-transparent {
+    background-color: transparent;
+}
+
+.cell-seven {
+    width: calc(100% / 7);
+}
+
+.cell-nine {
+    width: calc(100% / 9);
+}
+
+.bg-aqua {
+    background-color: aqua;
+}
