@@ -8,6 +8,7 @@ console.log(difficultyElement)
 
 const gameOverElement = document.querySelector('.game-over');
 
+// le griglie in base all difficoltà
 
 playBtnElement.addEventListener('click', function () {
     gameOverElement.classList.remove('active')
@@ -40,7 +41,6 @@ playBtnElement.addEventListener('click', function () {
            
             const cellNumber = parseInt(selectedCellElement.innerHTML);
             
-            console.log(score)
             if (bombs.includes(cellNumber)){
                 selectedCellElement.classList.add('bg-red')
                 gameOverElement.classList.add('active')
@@ -54,6 +54,8 @@ playBtnElement.addEventListener('click', function () {
     }
 })
 
+
+// funzione per generare le gliglie
 function gridGenerator(numCell, classCell) {
 
     const bodyCellElement = document.querySelector('.cell-body');
@@ -69,6 +71,7 @@ function gridGenerator(numCell, classCell) {
     }
 }
 
+// funzione per generare array dei numeri random
 
 function getNumberForArray(randomMin, randomMax, totalNumber) {
 
@@ -84,6 +87,7 @@ function getNumberForArray(randomMin, randomMax, totalNumber) {
     }
     return arrayBombs
 }
+
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
