@@ -1,5 +1,7 @@
 # js-campominato-dom
-
+- creare un array bomba vuoto sopra la zona di tre gridGenerator
+    - nella ogni gliglia dare dichiarare l'array delle bombe
+- creare una funzione per generare numeri random
 - creare una variabile per livello difficoltà 1
 - creare una funzione per avere un array con lenght di 16
     - creare un array vuoto
@@ -7,6 +9,13 @@
     - inserire condizione dell'array.lenght < di 16
     - creare una variabile per generare numeri random
     - SE i numero che ha array è diverso da quello generato
-        -   pushare il numero generato
+        - pushare il numero generato
     - fare return di array
-    - creare una funzione per generare numeri random
+- nel ciclo di array dal DOM
+- creare una variabile (cellNumbers)
+    - dichirare uguale al innerHTML di elemento della cella
+    - asscicuare che il risultato siano il numero
+    - SE l'array della bomba include i numeri della variabile (cellNumbers)
+        - applicare la classe bg-red al (selectedCellElement)
+    - ALtRIMENTI
+        - applicare la classe bg-aqua al (selectedCellElement)
