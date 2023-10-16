@@ -50,6 +50,7 @@ function gridGenerator(numCell, classCell) {
 }
 
 const difficoltyOne = getNumberForArray (1, 100, 16);
+console.log(difficoltyOne)
 
 function getNumberForArray(randomMin, randomMax, totalNumber) {
 
@@ -58,7 +59,7 @@ function getNumberForArray(randomMin, randomMax, totalNumber) {
 
     while (arrayBombs.length < totalNumber) {
         const number = getRandomInt(randomMin, randomMax);
-        console.log(number)
+        // console.log(number)
         if (!arrayBombs.includes(number)) {
             arrayBombs.push(number);
         }
