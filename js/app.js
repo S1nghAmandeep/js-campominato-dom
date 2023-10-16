@@ -6,17 +6,27 @@ console.log(playBtnElement);
 const difficultyElement = document.getElementById('level');
 console.log(difficultyElement)
 
-playBtnElement.addEventListener('click', function () {
+const gameOverElement = document.querySelector('.game-over');
 
+
+playBtnElement.addEventListener('click', function () {
+    gameOverElement.classList.remove('active')
+
+    let bombs = [];
 
     if (difficultyElement.value === "0") {
         gridGenerator(100, "")
+        bombs = getNumberForArray(1, 100, 16)
     } else if (difficultyElement.value === "1") {
         gridGenerator(81, "cell-nine");
+        bombs = getNumberForArray(1, 81, 16)
     } else if (difficultyElement.value === "2") {
         gridGenerator(49, "cell-seven")
+        bombs = getNumberForArray(1, 49, 16)
     }
-   
+
+    console.log(bombs)
+
     
     // recuprero celle dal dom
     const cellsDomElements = document.querySelectorAll('.cell');
@@ -25,14 +35,24 @@ playBtnElement.addEventListener('click', function () {
     // ciclo del array del dom (celle)
     for (let i = 0; i < cellsDomElements.length; i++){
         const selectedCellElement = cellsDomElements[i];
-
+        
         selectedCellElement.addEventListener('click', function () {
-            selectedCellElement.classList.add('bg-aqua');
-            console.log(selectedCellElement.innerHTML);
+           
+            const cellNumber = parseInt(selectedCellElement.innerHTML);
+            
+            console.log(score)
+            if (bombs.includes(cellNumber)){
+                selectedCellElement.classList.add('bg-red')
+                gameOverElement.classList.add('active')
+                console.log(gameOverElement)   
+            } else {
+                selectedCellElement.classList.add('bg-aqua');
+                console.log(selectedCellElement.innerHTML);
+            }
+
         })
     }
 })
-
 
 function gridGenerator(numCell, classCell) {
 
@@ -49,13 +69,11 @@ function gridGenerator(numCell, classCell) {
     }
 }
 
-const difficoltyOne = getNumberForArray (1, 100, 16);
-console.log(difficoltyOne)
 
 function getNumberForArray(randomMin, randomMax, totalNumber) {
 
     const arrayBombs = [];
-    console.log(arrayBombs)
+    // console.log(arrayBombs)
 
     while (arrayBombs.length < totalNumber) {
         const number = getRandomInt(randomMin, randomMax);
