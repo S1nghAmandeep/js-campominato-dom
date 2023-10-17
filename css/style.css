@@ -81,7 +81,8 @@ header {
     background-color: tomato;
 }
 
-.clock-once {
+.bg-aqua,
+.bg-red {
     pointer-events: none;
 }
 
@@ -100,4 +101,16 @@ header {
 
 .active {
     display: block;
+}
+
+#score {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(4, 4, 4);
+    box-shadow: 1px 3px 5px #413f8b;
 }
