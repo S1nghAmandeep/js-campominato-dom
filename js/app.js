@@ -8,20 +8,32 @@ console.log(difficultyElement)
 
 const gameOverElement = document.querySelector('.game-over');
 
+const scoreDomElement = document.getElementById('score');
+
+let score
+let cellsNumber
+let bombsNumber = 16;
 // le griglie in base all difficoltà
 
 playBtnElement.addEventListener('click', function () {
-    gameOverElement.classList.remove('active')
+    gameOverElement.classList.remove('active');
+
+    scoreDomElement.innerHTML= '0'
+
+    score = 0
 
     let bombs = [];
 
     if (difficultyElement.value === "0") {
+        cellsNumber = 100;
         gridGenerator(100, "")
         bombs = getNumberForArray(1, 100, 16)
     } else if (difficultyElement.value === "1") {
+        cellsNumber = 81;
         gridGenerator(81, "cell-nine");
         bombs = getNumberForArray(1, 81, 16)
     } else if (difficultyElement.value === "2") {
+        cellsNumber = 49;
         gridGenerator(49, "cell-seven")
         bombs = getNumberForArray(1, 49, 16)
     }
@@ -33,23 +45,33 @@ playBtnElement.addEventListener('click', function () {
     const cellsDomElements = document.querySelectorAll('.cell');
     // console.log(cellsDomElements);
 
-    // ciclo del array del dom (celle)
+    // ciclo di array del dom (celle)
     for (let i = 0; i < cellsDomElements.length; i++){
         const selectedCellElement = cellsDomElements[i];
         
         selectedCellElement.addEventListener('click', function () {
            
-            const cellNumber = parseInt(selectedCellElement.innerHTML);
+            let maxScore = cellsNumber - bombsNumber;
+            console.log(maxScore)
+
+            const cellNumbers = parseInt(selectedCellElement.innerHTML);
             
-            if (bombs.includes(cellNumber)){
-                selectedCellElement.classList.add('bg-red')
-                gameOverElement.classList.add('active')
-                console.log(gameOverElement)   
+            if (bombs.includes(cellNumbers)){
+                selectedCellElement.classList.add('bg-red');
+                gameOverElement.classList.add('active');
+                console.log(gameOverElement);   
             } else {
                 selectedCellElement.classList.add('bg-aqua');
                 console.log(selectedCellElement.innerHTML);
-            }
+                score ++
+                console.log(score)
+                scoreDomElement.innerHTML = score;
 
+                if (score === maxScore) {
+                    alert('you win');
+                    console.log(score);
+                }
+            }
         })
     }
 })
